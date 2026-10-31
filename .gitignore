@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+venv/
+env/
+
+# Data / outputs / checkpoints (large & non-source)
+data/
+outputs/
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.h5ad
+*.h5
+*.zip
+
+# Jupyter / IDE
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
