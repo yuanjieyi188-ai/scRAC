@@ -1,8 +1,8 @@
-# scRAGFlow Core Implementation
+# scRAC Core Implementation
 
-> **Code scope:** This repository presents the core scRAGFlow model and benchmark workflow. The complete project code will be provided after the peer-review process.
+> **Code scope:** This repository presents the core scRAC model and benchmark workflow. The complete project code will be provided after the peer-review process.
 
-scRAGFlow translates single-cell RNA profiles into surface-protein abundance through three stages:
+scRAC translates single-cell RNA profiles into surface-protein abundance through three stages:
 
 1. protein-targeted gene screening and a contrastive ZINB autoencoder;
 2. exact cosine retrieval of five reference cells and similarity-weighted protein-source synthesis;
@@ -17,12 +17,12 @@ configs/paper.yaml          Paper configuration
 datasets/README.md          Dataset sources and preparation
 datasets/download_geo.sh    GEO processed-matrix downloader
 datasets/prepare_h5ad.py    H5AD conversion and dimension checks
-scragflow/data.py           H5AD loading, normalization, gene screening, folds
-scragflow/models.py         Stage 1 encoders/decoders and Stage 3 vector field
-scragflow/losses.py         InfoNCE, ZINB, and flow-matching objectives
-scragflow/retrieval.py      FAISS IndexFlatIP retrieval and source synthesis
-scragflow/training.py       Three-stage training and checkpoint selection
-scragflow/metrics.py        Benchmark metrics
+scrac/data.py           H5AD loading, normalization, gene screening, folds
+scrac/models.py         Stage 1 encoders/decoders and Stage 3 vector field
+scrac/losses.py         InfoNCE, ZINB, and flow-matching objectives
+scrac/retrieval.py      FAISS IndexFlatIP retrieval and source synthesis
+scrac/training.py       Three-stage training and checkpoint selection
+scrac/metrics.py        Benchmark metrics
 experiments/run_5fold.py    Five-fold benchmark runner
 scripts/audit_release.py    Release consistency checks
 tests/test_core.py          Core implementation tests
@@ -47,7 +47,7 @@ Create the Conda environment:
 
 ```bash
 conda env create -f environment.yml
-conda activate scragflow
+conda activate scrac
 ```
 
 A pip specification is also provided:

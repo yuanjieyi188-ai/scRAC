@@ -9,11 +9,11 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scragflow.config import load_paper_config
-from scragflow.data import protein_targeted_gene_indices
-from scragflow.metrics import rbf_mmd
-from scragflow.losses import flow_matching_objective
-from scragflow.models import RetrievalConditionedFlow
+from scrac.config import load_paper_config
+from scrac.data import protein_targeted_gene_indices
+from scrac.metrics import rbf_mmd
+from scrac.losses import flow_matching_objective
+from scrac.models import RetrievalConditionedFlow
 
 
 def test_paper_config_values() -> None:
@@ -67,7 +67,7 @@ def test_endpoint_uses_unmasked_source() -> None:
 
 def test_readme_scope_notice() -> None:
     text = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "core scRAGFlow model and benchmark workflow" in text
+    assert "core scRAC model and benchmark workflow" in text
     assert "complete project code will be provided after the peer-review process" in text
 
 
@@ -94,7 +94,7 @@ def test_mmd_identity() -> None:
 
 
 def test_retrieval_self_exclusion(monkeypatch) -> None:
-    import scragflow.retrieval as retrieval
+    import scrac.retrieval as retrieval
 
     class FakeIndexFlatIP:
         def __init__(self, dimension: int) -> None:

@@ -10,12 +10,12 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scragflow.config import load_paper_config
-from scragflow.data import load_h5ad_dataset, load_or_create_splits, prepare_fold_data
-from scragflow.metrics import evaluate
-from scragflow.models import ContrastiveZINBAutoencoder, RetrievalConditionedFlow
-from scragflow.retrieval import ExactProteinMemory
-from scragflow.training import (
+from scrac.config import load_paper_config
+from scrac.data import load_h5ad_dataset, load_or_create_splits, prepare_fold_data
+from scrac.metrics import evaluate
+from scrac.models import ContrastiveZINBAutoencoder, RetrievalConditionedFlow
+from scrac.retrieval import ExactProteinMemory
+from scrac.training import (
     config_to_dict,
     encode_rna,
     predict_one_step,
@@ -27,7 +27,7 @@ from scragflow.training import (
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run the paper-configured scRAGFlow five-fold benchmark.")
+    parser = argparse.ArgumentParser(description="Run the paper-configured scRAC five-fold benchmark.")
     parser.add_argument("--data", required=True, type=Path)
     parser.add_argument("--dataset-name", required=True)
     parser.add_argument("--output", required=True, type=Path)

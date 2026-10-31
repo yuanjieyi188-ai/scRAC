@@ -1,4 +1,4 @@
-name: scragflow
+name: scrac
 channels:
   - pytorch
   - conda-forge

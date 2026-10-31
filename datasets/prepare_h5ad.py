@@ -28,7 +28,7 @@ SPECS = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Convert the GEO RNA and ADT count matrices to scRAGFlow H5AD input."
+        description="Convert the GEO RNA and ADT count matrices to scRAC H5AD input."
     )
     parser.add_argument("--dataset", required=True, choices=sorted(SPECS))
     parser.add_argument("--raw-dir", required=True, type=Path)

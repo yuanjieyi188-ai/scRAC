@@ -1,4 +1,4 @@
-"""Core scRAGFlow implementation.
+"""Core scRAC implementation.
 
 This package presents the core model and experiment workflow. The complete
 project code will be provided after the peer-review process.

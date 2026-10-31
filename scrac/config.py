@@ -131,8 +131,8 @@ _EXPECTED: dict[str, dict[str, Any]] = {
 
 
 def _validate_paper_values(raw: dict[str, Any]) -> None:
-    if raw.get("method") != "scRAGFlow":
-        raise ValueError("The paper configuration must use method=scRAGFlow.")
+    if raw.get("method") != "scRAC":
+        raise ValueError("The paper configuration must use method=scRAC.")
     for section, expected_values in _EXPECTED.items():
         actual = raw.get(section, {})
         for key, expected in expected_values.items():
