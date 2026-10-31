@@ -1,0 +1,53 @@
+method: scRAGFlow
+
+preprocessing:
+  normalization_target_sum: 10000.0
+  genes_per_protein: 100
+  gene_cap: 1000
+
+stage1:
+  hidden_dim: 256
+  latent_dim: 128
+  projection_dim: 64
+  depth: 2
+  dropout: 0.1
+  contrastive_weight: 10.0
+  rna_zinb_weight: 0.5
+  protein_zinb_weight: 0.5
+  temperature_init: 0.07
+  epochs: 20
+  learning_rate: 0.0004
+  weight_decay: 0.0001
+  batch_size: 256
+  gradient_clip: 1.0
+
+retrieval:
+  index: IndexFlatIP
+  neighbors: 5
+  temperature: 1.0
+  exact_cosine: true
+
+stage3:
+  condition_mode: query_similarity
+  hidden_dim: 512
+  depth: 4
+  time_dim: 64
+  dropout: 0.1
+  mask_probability: 0.2
+  endpoint_weight: 1.0
+  source_noise_std: 0.0
+  finetune_rna_encoder: true
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 1024
+  gradient_clip: 1.0
+  validation_interval: 1
+  solver: euler
+  nfe: 1
+
+experiment:
+  folds: 5
+  seed: 42
+  validation_fraction_of_reference: 0.125
+  protein_obsm_key: protein_expression
